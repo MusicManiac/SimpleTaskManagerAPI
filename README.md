@@ -1,4 +1,5 @@
 # Task Manager API
+This is my introductory project to Django, demonstrating how to build a RESTful API for managing tasks.
 
 A Django-based API for managing tasks, allowing users to create, update, delete, and filter tasks. The API also tracks the history of task changes.
 
