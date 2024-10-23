@@ -94,14 +94,14 @@ Users API Endpoints
 | PUT  | /api/users/{id}/ | Update a user |
 | DELETE  | /api/users/{id}/ | Delete a user |
 
-Examples:
+### Examples:
 > [!NOTE]
 > When using windows command line, remember that you have to replace `"` with `\"` inside double quotes when sending json over so it's parsed corectly, as example:<br />
 > `curl -X POST http://127.0.0.1:8000/api/tasks/ -H "Content-Type: application/json" -d "{"name": "CLI Task", "description": "Task created via curl", "status": "new"}"`<br />
 > becomes<br />
 > `curl -X POST http://127.0.0.1:8000/api/tasks/ -H "Content-Type: application/json" -d "{\"name\": \"CLI Task\", \"description\": \"Task created via curl\", \"status\": \"new\"}"`
 
-### Format:
+Format:
 ```
 curl
 
