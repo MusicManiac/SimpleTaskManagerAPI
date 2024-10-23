@@ -1,0 +1,85 @@
+[
+{
+  "model": "tasks.task",
+  "pk": 1,
+  "fields": {
+    "name": "Test Task 1",
+    "description": "Description here",
+    "status": "in_progress",
+    "assigned_user": 1
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 2,
+  "fields": {
+    "name": "Task 2",
+    "description": "Description 2",
+    "status": "new",
+    "assigned_user": 1
+  }
+},
+{
+  "model": "tasks.historicaltask",
+  "pk": 1,
+  "fields": {
+    "id": 1,
+    "name": "Test Task 1",
+    "description": "Description here",
+    "status": "new",
+    "assigned_user": null,
+    "history_date": "2024-10-23T16:08:53.842Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "tasks.historicaltask",
+  "pk": 2,
+  "fields": {
+    "id": 2,
+    "name": "Task 2",
+    "description": "Description 2",
+    "status": "new",
+    "assigned_user": 1,
+    "history_date": "2024-10-23T16:09:51.168Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "tasks.historicaltask",
+  "pk": 3,
+  "fields": {
+    "id": 1,
+    "name": "Test Task 1",
+    "description": "Description here",
+    "status": "in_progress",
+    "assigned_user": 1,
+    "history_date": "2024-10-23T16:10:07.183Z",
+    "history_change_reason": null,
+    "history_type": "~",
+    "history_user": null
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$wdbdZPQpexeHO2EuSFf7nL$LejhxIQ/1wAPMjivwvOYajdOO5cr8EwEjMDD5ypSZ68=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "TestUser",
+    "first_name": "Test",
+    "last_name": "User",
+    "email": "example@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-10-23T16:09:25.894Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
