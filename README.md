@@ -26,6 +26,7 @@ Ensure you have the following installed:
 - [Python 3.12.7 or newer](https://www.python.org/downloads/) (few versions behind probably would also work)
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [pip](https://pip.pypa.io/en/stable/)
+- [python3-virtualenv](https://virtualenv.pypa.io/en/latest/index.html) (if you are not planning to use PyCharm, otherwise skip this)
 - Installation process is described presuming using [PyCharm Community](https://www.jetbrains.com/pycharm/download/), may vary with other IDEs
 
 ### Steps
@@ -49,13 +50,15 @@ Setting up PSQL:
    DROP USER task_admin;
    ```
 
-Setting up project (using PyCharm):
-1. Open PyCharm
-2. Create project from version control
-3. Setup Python Interpreter and virtual environment
+Setting up project:
+1. Clone repo
+2. (If using PyCharm) Setup Python Interpreter and virtual environment
    1. Go to Settings -> Python Interpreter -> Add Interpreter -> Select Local Interpreter -> select installed python version
    2. Open new terminal in PyCharm, it will be using venv by default
-4. In previously opened (.venv) terminal, install required packages:
+3. (If not using Pycharm and setting up venv manually) Set up virtual environment
+   1. In project directory run `virtualenv manual_venv` which will create new virtual environment
+   2. Enter your venv with `source manual_venv/bin/activate`
+4. In previously opened virtual environment terminal, install required packages:
    ```
    python -m pip install --upgrade pip
    pip install Django djangorestframework psycopg2-binary django-filter django-simple-history pytest pytest-django
