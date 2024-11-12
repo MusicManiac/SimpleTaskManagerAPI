@@ -49,21 +49,24 @@ Setting up PSQL:
    DROP USER task_admin;
    ```
 
-Setting up project:
-1. Clone repo
-2. Setup Python Interpreter (PyCharm will complain that project does not have one set up, proceed to project settings and setup your previously installed Python there as interpreter)
-3. Open terminal, make sure you're in virtual enviroment (.venv) and install required packages:
+Setting up project (using PyCharm):
+1. Open PyCharm
+2. Create project from version control
+3. Setup Python Interpreter and virtual environment
+   1. Go to Settings -> Python Interpreter -> Add Interpreter -> Select Local Interpreter -> select installed python version
+   2. Open new terminal in PyCharm, it will be using venv by default
+4. In previously opened (.venv) terminal, install required packages:
    ```
    python -m pip install --upgrade pip
    pip install Django djangorestframework psycopg2-binary django-filter django-simple-history pytest pytest-django
    ```
-4. Make migrations and import provided initial data
+5. Make migrations and import provided initial data
    ```
    python manage.py makemigrations
    python manage.py migrate
    python manage.py loaddata tasks/fixtures/initial_data_with_history.json
    ```
-5. Run the server with `python manage.py runserver`
+6. Run the server with `python manage.py runserver`
 
 ## Tests
 Testing is implemented using [pytest](https://docs.pytest.org/en/stable/) and can be done by running command `pytest` in your virtual enviroment
