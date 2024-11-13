@@ -55,7 +55,7 @@ Setting up project:
 3. Open terminal, make sure you're in virtual enviroment (.venv) and install required packages:
    ```
    python -m pip install --upgrade pip
-   pip install Django djangorestframework psycopg2-binary django-filter django-simple-history pytest pytest-django
+   pip install -r requirements.txt
    ```
 4. Make migrations and import provided initial data
    ```
