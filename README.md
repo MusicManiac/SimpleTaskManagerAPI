@@ -56,7 +56,7 @@ Setting up project:
    1. Go to Settings -> Python Interpreter -> Add Interpreter -> Select Local Interpreter -> select installed python version
    2. Open new terminal in PyCharm, it will be using venv by default
 3. (If not using Pycharm and setting up venv manually) Set up virtual environment
-   1. In project directory run `virtualenv manual_venv` which will create new virtual environment
+   1. In project directory run `virtualenv manual_venv --python=python3.12.7` which will create new virtual environment.
    2. Enter your venv with `source manual_venv/bin/activate`
 4. In previously opened virtual environment terminal, install required packages:
    ```
@@ -102,7 +102,7 @@ Users API Endpoints
 
 ### Examples:
 > [!NOTE]
-> When using windows command line, remember that you have to replace `"` with `\"` inside double quotes when sending json over so it's parsed corectly, as example:<br />
+> When using CLI (command line interface), remember that you have to replace `"` with `\"` inside double quotes when sending json over so it's parsed corectly, as example:<br />
 > `curl -X POST http://127.0.0.1:8000/api/tasks/ -H "Content-Type: application/json" -d "{"name": "CLI Task", "description": "Task created via curl", "status": "new"}"`<br />
 > becomes<br />
 > `curl -X POST http://127.0.0.1:8000/api/tasks/ -H "Content-Type: application/json" -d "{\"name\": \"CLI Task\", \"description\": \"Task created via curl\", \"status\": \"new\"}"`
