@@ -19,13 +19,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(jxy_wp$mud8r7us6qd%ny9z0zone)3#8o^4k=m9yf(k3h^uxn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '127.0.0.1:8000', '127.0.0.1:1337']
 
 
 # Application definition
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'tasks',
     'django_filters',
     'simple_history',
+    'gunicorn'
 ]
 
 MIDDLEWARE = [
@@ -79,7 +83,8 @@ WSGI_APPLICATION = 'tasks_manager_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        #'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'task_manager',  # Database name
         'USER': 'task_admin',
         'PASSWORD': 'admin',
@@ -130,6 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
