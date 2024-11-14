@@ -12,7 +12,8 @@ A Django-based API for managing tasks, allowing users to create, update, delete,
 
 ## Technologies and Packages Used
 
-- [Python 3.12.7](https://www.python.org/downloads/)
+- [Python 3.12.7](https://www.python.org/downloads/release/python-3127/)
+- [Docker Compose](https://docs.docker.com/compose/)
 - [Django](https://www.djangoproject.com/download/)
 - [Django REST Framework](https://www.django-rest-framework.org/)
 - [PostgreSQL](https://www.postgresql.org/)
@@ -23,13 +24,28 @@ A Django-based API for managing tasks, allowing users to create, update, delete,
 ## Installation
 Ensure you have the following installed:
 
-- [Python 3.12.7 or newer](https://www.python.org/downloads/) (few versions behind probably would also work)
+- [Docker Desktop](https://docs.docker.com/compose/install/)
+
+or
+
+- [Python 3.12.7](https://www.python.org/downloads/)
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [pip](https://pip.pypa.io/en/stable/)
-- [python3-virtualenv](https://virtualenv.pypa.io/en/latest/index.html) (if you are not planning to use PyCharm, otherwise skip this)
-- Installation process is described presuming using [PyCharm Community](https://www.jetbrains.com/pycharm/download/), may vary with other IDEs
+- [python3-virtualenv](https://virtualenv.pypa.io/en/latest/index.html) (only required if you're not using [PyCharm](https://www.jetbrains.com/pycharm/download/))
 
-### Steps
+### Steps (with Docker Compose)
+
+1. Clone repo
+2. Inside the terminal repo run following commands:
+   ```
+   docker compose build
+   docker compose up
+   ```
+   and wait for line `web-1  | Watching for file changes with StatReloader` to appear
+   ![Screenshot from 2024-11-14 10-13-04](https://github.com/user-attachments/assets/c6105815-3316-4a52-96f7-b951205773da)
+4. Open http://127.0.0.1:8000/api/ or run cURL commands from terminal
+
+### Steps (manual)
 
 Setting up PSQL:
 1. Open SQL shell (psql),
@@ -52,8 +68,9 @@ Setting up PSQL:
 
 Setting up project:
 1. Clone repo
+   1. Change directory to app folder `cd app/`
 2. (If using PyCharm) Setup Python Interpreter and virtual environment
-   1. Go to Settings -> Python Interpreter -> Add Interpreter -> Select Local Interpreter -> select installed python version
+   1. Go to Settings -> Python Interpreter -> Add Interpreter -> Select Local Interpreter -> select installed python version 3.12.7
    2. Open new terminal in PyCharm, it will be using venv by default
 3. (If not using Pycharm and setting up venv manually) Set up virtual environment
    1. In project directory run `virtualenv manual_venv --python=python3.12.7` which will create new virtual environment.
@@ -70,14 +87,15 @@ Setting up project:
    python manage.py loaddata tasks/fixtures/initial_data_with_history.json
    ```
 6. Run the server with `python manage.py runserver`
+7. Open http://127.0.0.1:8000/api/ or run CURL commands from terminal
 
-## Tests
-Testing is implemented using [pytest](https://docs.pytest.org/en/stable/) and can be done by running command `pytest` in your virtual enviroment
+## Tests (manual installation only for now)
+Testing is implemented using [pytest](https://docs.pytest.org/en/stable/) and can be done by running command `pytest` in your virtual environment
 ![image](https://github.com/user-attachments/assets/20170793-6230-46e1-9bfe-5c3b7a60ad92)
 
 
 ## Usage
-You can interact with API usng cURLs and/or browser
+You can interact with API using cURLs and/or browser
 
 Tasks API Endpoints
 
