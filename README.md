@@ -42,7 +42,8 @@ or
    docker compose up
    ```
    and wait for line `web-1  | Watching for file changes with StatReloader` to appear
-3. Open http://127.0.0.1:8000/api/ or run cURL commands from terminal
+   ![Screenshot from 2024-11-14 10-13-04](https://github.com/user-attachments/assets/c6105815-3316-4a52-96f7-b951205773da)
+4. Open http://127.0.0.1:8000/api/ or run cURL commands from terminal
 
 ### Steps (manual)
 
