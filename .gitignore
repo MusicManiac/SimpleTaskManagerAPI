@@ -1,3 +1,4 @@
 /venv/
 /.idea/
 /manual_venv/
+/app/staticfiles/
