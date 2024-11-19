@@ -4,6 +4,5 @@ python manage.py makemigrations &&
 python manage.py migrate &&
 python manage.py loaddata tasks/fixtures/initial_data_with_history.json &&
 python manage.py collectstatic --noinput &&
-echo 'Open http://127.0.0.1:8000/api/ or run cURL commands from terminal' &&
-# python manage.py runserver 0.0.0.0:8000
+pytest &&
 gunicorn --bind 0.0.0.0:8000 tasks_manager_project.wsgi:application
