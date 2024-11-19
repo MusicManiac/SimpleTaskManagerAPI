@@ -96,8 +96,9 @@ to run it with built-in Django server or
    to run it with gunicorn (gunicorn will show link as http://0.0.0.0:8000 but that's not what you need, you need one in next step)
 7. Open http://127.0.0.1:8000/api/ or run CURL commands from terminal
 
-## Tests (manual installation only for now)
-Testing is implemented using [pytest](https://docs.pytest.org/en/stable/) and can be done by running command `pytest` in your virtual environment
+## Tests
+Testing is implemented using [pytest](https://docs.pytest.org/en/stable/) and can be done by running command `pytest` in your virtual environment.
+If using docker installation they are run automatically before server start.
 ![image](https://github.com/user-attachments/assets/20170793-6230-46e1-9bfe-5c3b7a60ad92)
 
 
