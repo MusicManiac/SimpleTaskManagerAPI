@@ -19,8 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# USE_X_FORWARDED_HOST = True
-# USE_X_FORWARDED_PORT = True
+USE_X_FORWARDED_HOST = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(jxy_wp$mud8r7us6qd%ny9z0zone)3#8o^4k=m9yf(k3h^uxn'
@@ -28,7 +27,7 @@ SECRET_KEY = 'django-insecure-(jxy_wp$mud8r7us6qd%ny9z0zone)3#8o^4k=m9yf(k3h^uxn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '127.0.0.1:8000', '127.0.0.1:1337']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '127.0.0.1:8000']
 
 
 # Application definition

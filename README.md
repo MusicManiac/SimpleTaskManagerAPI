@@ -17,6 +17,8 @@ A Django-based API for managing tasks, allowing users to create, update, delete,
 - [Django](https://www.djangoproject.com/download/)
 - [Django REST Framework](https://www.django-rest-framework.org/)
 - [PostgreSQL](https://www.postgresql.org/)
+- [gunicorn](https://gunicorn.org/)
+- [nginx](https://nginx.org/en/)
 - [django-simple-history](https://django-simple-history.readthedocs.io/en/latest/)
 - [django_filters](https://django-filter.readthedocs.io/en/stable/)
 - [pytest](https://docs.pytest.org/en/stable/) for testing
@@ -36,10 +38,9 @@ or
 ### Steps (with Docker Compose)
 
 1. Clone repo
-2. Inside the terminal repo run following commands:
+2. Inside the terminal repo run following command:
    ```
-   docker compose build
-   docker compose up
+   docker compose build && docker compose up
    ```
    and wait for line `web-1  | Watching for file changes with StatReloader` to appear
    ![Screenshot from 2024-11-14 10-13-04](https://github.com/user-attachments/assets/c6105815-3316-4a52-96f7-b951205773da)
@@ -85,8 +86,14 @@ Setting up project:
    python manage.py makemigrations
    python manage.py migrate
    python manage.py loaddata tasks/fixtures/initial_data_with_history.json
+   python manage.py collectstatic --noinput
    ```
 6. Run the server with `python manage.py runserver`
+to run it with built-in Django server or
+   ```
+   gunicorn --bind 0.0.0.0:8000 tasks_manager_project.wsgi:application
+   ```
+   to run it with gunicorn (gunicorn will show link as http://0.0.0.0:8000 but that's not what you need, you need one in next step)
 7. Open http://127.0.0.1:8000/api/ or run CURL commands from terminal
 
 ## Tests (manual installation only for now)
