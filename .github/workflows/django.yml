@@ -18,6 +18,13 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: '3.12.7'
+    - name: Cache Python dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-python-${{ hashFiles('app/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-python-
     - name: Install Dependencies
       working-directory: ./app
       run: |
@@ -28,12 +35,7 @@ jobs:
       id: postgres
     - name: Initial PSQL setup
       run: |
-        psql service=postgres -c "CREATE USER task_admin WITH PASSWORD 'admin';"
-        psql service=postgres -c "CREATE DATABASE task_manager;"
-        psql service=postgres -c "ALTER USER task_admin CREATEDB;"
-        psql service=postgres -c "GRANT ALL ON SCHEMA public TO task_admin;"
-        psql service=postgres -c "GRANT ALL PRIVILEGES ON DATABASE task_manager TO task_admin;"
-        psql service=postgres -c "ALTER DATABASE task_manager OWNER TO task_admin;"
+        psql service=postgres -f ./db/db-init.sql
       env:
         PGSERVICE: postgres
     - name: Run Tests
