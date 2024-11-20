@@ -19,6 +19,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Install PSQL
+      uses: ikalnytskyi/action-setup-postgres@v7
+      id: postgres
+    - name: Setup PSQL user
+      run: |
+        psql postgresql://postgres:postgres@localhost:5432/postgres -c "CREATE USER task_admin WITH PASSWORD 'admin'"
+        psql service=postgres -c "CREATE USER task_admin WITH PASSWORD 'admin'"
+      env:
+        PGSERVICE: postgres
     - name: Run Tests
       working-directory: ./app
       run: |
