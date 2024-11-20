@@ -22,10 +22,14 @@ jobs:
     - name: Install PSQL
       uses: ikalnytskyi/action-setup-postgres@v7
       id: postgres
-    - name: Setup PSQL user
+    - name: Initial PSQL setup
       run: |
-        psql postgresql://postgres:postgres@localhost:5432/postgres -c "CREATE USER task_admin WITH PASSWORD 'admin'"
-        psql service=postgres -c "CREATE USER task_admin WITH PASSWORD 'admin'"
+        psql service=postgres -c "CREATE USER task_admin WITH PASSWORD 'admin';"
+        psql service=postgres -c "CREATE DATABASE task_manager;"
+        psql service=postgres -c "ALTER USER task_admin CREATEDB;"
+        psql service=postgres -c "GRANT ALL ON SCHEMA public TO task_admin;"
+        psql service=postgres -c "GRANT ALL PRIVILEGES ON DATABASE task_manager TO task_admin;"
+        psql service=postgres -c "ALTER DATABASE task_manager OWNER TO task_admin;"
       env:
         PGSERVICE: postgres
     - name: Run Tests
